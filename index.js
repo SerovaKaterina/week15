@@ -9,5 +9,21 @@ for (let i = 0; i < cities.length; i++) {
     city.textContent = `Температура в городе ${cities[i]}: ${temperatura} °С`;
     citiesData.append(city);
 };
+let minimum = Infinity;
+let maximum = -Infinity;
+for (let i = 0; i < temp.length; i++) {
+    const result = temp[i];
+    if (result < minimum) {
+    minimum = result;
+    }
+    if (result> maximum) {
+    maximum = result;
+    }
+}
 
-
+const minTemp = document.createElement('h2');
+const maxTemp = document.createElement('h2');
+minTemp.textContent = `Минимальная температура: ${minimum} °С`;
+maxTemp.textContent = `Маскимальная температура: ${maximum} °С`;
+citiesData.after(minTemp);
+citiesData.after(maxTemp);
